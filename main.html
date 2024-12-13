@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+    <title>Gwyneth-Portfolio</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+                Gwyneth <span>Caballero</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="main.html">Home</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a href="aboutme.html">About Me</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="gallery.html">Gallery</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="family.html">My Family</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a href="contact.html">Contact</a></div>
+        </div>
+        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+    </div>
+        <div class="dropdown">
+            <div class="links">
+                <a href="main.html">Home</a>
+                <a href="aboutme.html">About Me</a>              
+                <a href="gallery.html">Gallery</a>
+                <a href="family.html">My Family
+                <a href="contact.html">Contact</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
+    <section>
+        <div class="main-container">
+            <div class="image" data-aos="zoom-out" data-aos-duration="3000">
+                <img src="displayphoto.jpg" alt="">
+            </div>
+            <div class="content">
+                <h1 data-aos="fade-left" data-aos-duration="1500" data-aos-delay="700">Hi! I'm <span>Gwyneth Caballero</span></h1><br>
+                <!--<div class="typewriter" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="900">I'm a <span class="typewriter-text"></span><label for="">|</label></div>-->
+                <h3 style="color: #524f4f;" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1100">I'm a second year college student pursuing a degree in Bachelor of Science in Information Technology at Camarines Norte State College 👩🏻‍💻📚</h3>
+
+                <p data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1100">
+                    I find joy in observing the beauty of the world around me, embracing simplicity, and connecting deeply with others.  
+                    I enjoy meaningful conversations, reflecting on life’s intricacies, and appreciating the little details that often go unnoticed.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/gwycaballero?mibextid=ZbWKwL" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1300"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/gwycbllr/profilecard/?igsh=MTh5N3kxa2JzOTBicg==" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1400"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.threads.net/@gwycbllr" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500"><i class="fa-brands fa-threads"></i></a>
+                   <!-- <a href="#" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1600"><i class="fa-brands fa-twitter"></i></a>-->
+                </div>
+                <!--<div class="btn" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1800">
+                    <button>Hire me</button>
+                </div>-->
+            </div>
+        </div>     
+    </section>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({offset:0});
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

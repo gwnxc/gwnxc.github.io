@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+body {
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #fffaec;
+}
+
+nav{
+    width: 100%;
+    height: 10vh;
+    position: sticky;
+}
+.nav-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.logo{
+    color: black;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.logo span{
+    color: #6d1721;
+    text-shadow: 0 0 10px #6d1721;
+}
+.hamburg,
+.cancel{
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: black;
+    display: none;
+    font-size: clamp(2.5rem, 0.5rem + 5vw, 3rem);
+}
+.nav-container .links{
+    display: flex;
+}
+.nav-container .links a{
+    position: relative;
+    font-size: 1.2rem;
+    color: black;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: 550;
+    transition: 0.3s linear;
+    display: block;
+}
+.nav-container .links a::before{
+    position: absolute;
+    content: "";
+    bottom: -3px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #6d1721;
+    transition: 0.2s linear;
+}
+.nav-container .links a:hover::before{
+    width: 100%;
+}
+.nav-container .links a:hover{
+    color: #6d1721;
+}
+.dropdown{
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  transform: translateY(-500px);
+  width: 100%;
+  height: auto;
+  backdrop-filter: blur(4px) brightness(40%);
+  box-shadow:  0 0 20px black;
+  transition: 0.2s linear;
+}
+.dropdown .links a{
+    display: flex;
+    color: black;
+    text-decoration: none;
+    justify-content: center;
+    padding: 15px 0;
+    align-items: center;
+    transition: 0.2s linear;
+}
+.dropdown .links a:hover{
+    background-color: #6d1721;
+}
+section{
+    width: 100%;
+    height: 90vh;
+}
+.main-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /* Add spacing between the image and the text */
+    padding: 20px; /* Add padding for better spacing on smaller screens */
+}
+@keyframes animate {
+    0%{
+        scale: 1;
+    }
+    50%{
+        scale: 1.05;
+    }
+    100%{
+        scale: 1;
+    }
+}
+.main-container .content{
+    color: black;
+    width: 40%;
+    min-height: 100px;
+}
+.content h1{
+    font-size: clamp(1rem, 1rem + 5vw, 1.8rem);
+}
+.content h1 span{
+    color: #722f37;
+    text-shadow: 0  0 10px #722f37;
+}
+.content .typewriter{
+    font-size: clamp(1rem, 1rem + 5vw, 2.5rem);
+    font-weight: 600;
+}
+.content .typewriter-text{
+    color: #722f37;
+    text-shadow: 0 0 10px #722f37;
+}
+.content p{
+    font-size: clamp(0.4rem , 0.2rem + 9vw, 1rem);
+    margin: 10px 0;
+}
+.content button{
+    width: 50%;
+    height: 6vh;
+    margin: 30px;
+    background-color: #722f37;
+    color: black;
+    border: none;
+    outline: none;
+    font-size: 120%;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: 0.2s linear;
+}
+.content button:hover{
+    scale: 1.1;
+    color: #722f37;
+    border: 2px solid #722f37;
+    background-color: transparent;
+    font-weight: 700;
+    box-shadow: 0 0 40px #722f37;
+}
+@media (max-width:884px) {
+    nav .logo{
+        position: absolute;
+        top: 16px;
+        left: 15px;
+        font-size: 1.5rem;
+    }
+    .main-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .nav-container .links{
+        display: none;
+    }
+    .hamburg,
+    .cancel{
+        display: block;
+    }
+    .main-container .content{
+        width: 80%;
+    }
+    .social-links i{
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.5rem;
+    }
+    .main-container .image{
+        z-index: -1;
+        width: 50%;
+        height: 60%;
+    }
+}
+@media (max-width: 440px) {
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center; /* Optional for text */
+    }
+
+    .main-container .image {
+        width: 50%;
+        height: 60%;
+        margin-bottom: 0;
+    }
+
+    .main-container .content {
+        width: 80%;
+    }
+
+    .main-container button {
+        margin-top: 15px;
+    }
+}
+@media (max-width: 768px) {
+    nav .links {
+        display: none; /* Show hamburger menu instead */
+    }
+
+    .form-container {
+        width: 90%;
+        margin: auto;
+        padding: 10px;
+    }
+
+    .social-icons i {
+        font-size: 1.5rem; /* Reduce icon size */
+        margin: 5px;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+}
+
+  /* Styles for the contact section background and layout */
+  #contact {
+    background-color: #fffaec;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  /* Style for the section title */
+  .section-title {
+    font-size: 2.5rem;
+    color: #6d1721;
+    text-shadow: 0 0 10px #6d1721;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  /* Wrapper around the form for styling */
+  .form-wrapper {
+    background-color: #f4d2cd;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto 30px;
+    border: 3px solid #722f37; /* Added border to Let’s Connect box */
+  }
+
+  /* Title above the form */
+  .form-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #eca500;
+    margin-bottom: 15px;
+  }
+
+  /* Input and textarea styling */
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+
+  /* Submit button styling */
+  .contact-form button {
+    background-color: #ffe9b6;
+    border: 2px solid #722f37;
+    color: black;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  /* Submit button hover effect */
+  .contact-form button:hover {
+    background-color: #722f37;
+    color: #ffe9b6;
+  }
+
+  /* Styling for the contact information text */
+  .contact-info p {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: black;
+  }
+
+  /* Layout for social icons */
+  .social-links i{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
+    border: 0.2rem solid #722f37;
+    border-radius: 50%;
+    color: #722f37;
+    margin: 5px 15px;
+    font-size: 1.5rem;
+    transition: 0.2s linear;
+}
+.social-links i:hover{
+    scale: 1.3;
+    color: rgb(232, 205, 205);
+    background-color: #722f37;
+    filter: drop-shadow(0 0 10px #722f37);
+}
+  /* Footer text styling */
+  footer {
+    margin-top: 20px;
+    font-size: 0.7rem;
+    color: rgb(36, 36, 36);
+  }
+
+    /* Responsive design for smaller screens */
+    @media (max-width: 768px) {
+        .form-wrapper {
+          padding: 15px;
+          max-width: 90%;
+        }
+    
+        .section-title {
+          font-size: 1.8rem;
+        }
+    
+        .form-title {
+          font-size: 1.3rem;
+        }
+    
+        .contact-form input,
+        .contact-form textarea {
+          font-size: 0.9rem;
+        }
+    
+        .contact-form button {
+          font-size: 0.9rem;
+          padding: 8px 16px;
+        }
+    
+        .contact-info p {
+          font-size: 0.9rem;
+        }
+    
+        .social-icons a {
+          font-size: 1.2rem;
+        }
+    
+        footer p {
+          font-size: 0.7rem;
+        }
+      }
+    
+      @media (max-width: 480px) {
+        .section-title {
+          font-size: 1.5rem;
+        }
+    
+        .form-title {
+          font-size: 1.2rem;
+        }
+    
+        .contact-form button {
+          padding: 6px 12px;
+        }
+    
+        .contact-info p {
+          font-size: 0.8rem;
+        }
+    
+        .social-icons a {
+          font-size: 1rem;
+        }
+      }

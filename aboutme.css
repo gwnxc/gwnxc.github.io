@@ -1,0 +1,681 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+body {
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #fffaec;
+}
+
+nav{
+    width: 100%;
+    height: 10vh;
+    position: sticky;
+}
+.nav-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.logo{
+    color: black;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.logo span{
+    color: #6d1721;
+    text-shadow: 0 0 10px #6d1721;
+}
+.hamburg,
+.cancel{
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: black;
+    display: none;
+    font-size: clamp(2.5rem, 0.5rem + 5vw, 3rem);
+}
+.nav-container .links{
+    display: flex;
+}
+.nav-container .links a{
+    position: relative;
+    font-size: 1.2rem;
+    color: black;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: 550;
+    transition: 0.3s linear;
+}
+.nav-container .links a::before{
+    position: absolute;
+    content: "";
+    bottom: -3px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #6d1721;
+    transition: 0.2s linear;
+}
+.nav-container .links a:hover::before{
+    width: 100%;
+}
+.nav-container .links a:hover{
+    color: #6d1721;
+}
+/* Modal container */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999; /* Ensure it is on top */
+    width: 90%; /* Adjust for mobile screens */
+    max-width: 400px; /* Optional */
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation Menu */
+.navigation-menu {
+    display: flex;
+    flex-direction: column; /* Stack the links */
+    align-items: center;
+}
+
+.navigation-menu a {
+    text-decoration: none;
+    padding: 0.5rem;
+    color: #333;
+}
+
+@media (max-width: 600px) {
+    .modal {
+        width: 95%;
+        max-height: 90%;
+    }
+
+    .navigation-menu a {
+        font-size: 1rem; /* Adjust font size */
+        padding: 0.8rem; /* Adjust padding */
+    }
+}
+
+
+.dropdown{
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    transform: translateY(-500px);
+    width: 100%;
+    height: auto;
+    backdrop-filter: blur(4px) brightness(40%);
+    box-shadow:  0 0 20px black;
+    transition: 0.2s linear;
+}
+.dropdown.active {
+    top: 0;
+}
+
+.dropdown .links a{
+    display: flex;
+    color: black;
+    text-decoration: none;
+    justify-content: center;
+    padding: 15px 0;
+    align-items: center;
+    transition: 0.2s linear;
+}
+.dropdown .links a:hover{
+    background-color: #6d1721;
+}
+section{
+    width: 100%;
+    height: 90vh;
+}
+.main-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /* Add spacing between the image and the text */
+    padding: 20px; /* Add padding for better spacing on smaller screens */
+}
+.main-container .image {
+    width: 300px; /* Reduced width */
+    height: 54vh; /* Reduced height */
+    border-radius: 100%;
+    overflow: hidden;
+    box-shadow: 0 0 30px #d1b82e; /* Softer shadow */
+}
+
+.main-container .image img{
+    width: 100%;
+}
+.main-container .image:hover{
+    animation: animate 1.5s ease-in-out infinite;
+}
+@keyframes animate {
+    0%{
+        scale: 1;
+    }
+    50%{
+        scale: 1.05;
+    }
+    100%{
+        scale: 1;
+    }
+}
+.main-container .content{
+    color: black;
+    width: 40%;
+    min-height: 100px;
+}
+.content h1{
+    font-size: clamp(1rem, 1rem + 5vw, 1.8rem);
+}
+.content h1 span{
+    color: #722f37;
+    text-shadow: 0  0 10px #722f37;
+}
+.content .typewriter{
+    font-size: clamp(1rem, 1rem + 5vw, 2.5rem);
+    font-weight: 600;
+}
+.content .typewriter-text{
+    color: #722f37;
+    text-shadow: 0 0 10px #722f37;
+}
+.content p{
+    font-size: clamp(0.4rem , 0.2rem + 9vw, 1rem);
+    margin: 10px 0;
+}
+.social-links i{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
+    border: 0.2rem solid #722f37;
+    border-radius: 50%;
+    color: #722f37;
+    margin: 5px 15px;
+    font-size: 1.5rem;
+    transition: 0.2s linear;
+}
+.social-links i:hover{
+    scale: 1.3;
+    color: rgb(232, 205, 205);
+    background-color: #722f37;
+    filter: drop-shadow(0 0 10px #722f37);
+}
+.content button{
+    width: 50%;
+    height: 6vh;
+    margin: 30px;
+    background-color: #722f37;
+    color: black;
+    border: none;
+    outline: none;
+    font-size: 120%;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: 0.2s linear;
+}
+.content button:hover{
+    scale: 1.1;
+    color: #722f37;
+    border: 2px solid #722f37;
+    background-color: transparent;
+    font-weight: 700;
+    box-shadow: 0 0 40px #722f37;
+}
+@media (max-width:884px) {
+    nav .logo{
+        position: absolute;
+        top: 16px;
+        left: 15px;
+        font-size: 1.5rem;
+    }
+    .main-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .nav-container .links{
+        display: none;
+    }
+    .hamburg,
+    .cancel{
+        display: block;
+    }
+    .main-container .content{
+        width: 80%;
+    }
+    .social-links i{
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.5rem;
+    }
+    .main-container .image{
+        z-index: -1;
+        width: 50%;
+        height: 60%;
+    }
+}
+@media (max-width: 440px) {
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center; /* Optional for text */
+    }
+
+    .main-container .image {
+        width: 50%;
+        height: 60%;
+        margin-bottom: 0;
+    }
+
+    .main-container .content {
+        width: 80%;
+    }
+
+    .main-container button {
+        margin-top: 15px;
+    }
+}
+@media (max-width: 768px) {
+    #about-me {
+        padding: 50px 10px;
+        text-align: center; /* Center-align text for smaller screens */
+    }
+
+    #about-me h2 {
+        font-size: 1.8rem; /* Reduce heading size */
+    }
+
+    #about-me p {
+        font-size: 1rem; /* Adjust paragraph font size */
+        line-height: 1.5;
+        margin: 0 auto; /* Center the text */
+    }
+
+    .scrapbook-content {
+        flex-direction: column; /* Stack scrapbook items vertically */
+        align-items: center;
+    }
+
+    .photo-card img {
+        width: 100%; /* Ensure image scales within container */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .details {
+        grid-template-columns: 1fr; /* Single column for sticky notes */
+    }
+
+    .sticky-note {
+        width: 90%; /* Take most of the screen width */
+        min-width: unset;
+    }
+
+    .educational-background {
+        padding: 15px;
+        font-size: 1rem;
+        text-align: center; /* Center-align for smaller screens */
+    }
+}
+
+@media (max-width: 440px) {
+    #about-me {
+        padding: 20px;
+    }
+
+    #about-me h2 {
+        font-size: 1.5rem;
+    }
+
+    #about-me p {
+        font-size: 0.9rem;
+    }
+
+    .main-container .image {
+        width: 80%; /* Adjust image size for very small screens */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .content h1,
+    .content .typewriter {
+        font-size: 1.2rem;
+    }
+
+    .sticky-note {
+        width: 100%; /* Take full width */
+    }
+
+    .scrapbook {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .educational-background {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+
+#about-me {
+    padding: 100px 20px; /* Adjust if needed */
+    background-color: rgb(245, 245, 208);
+    color: black;
+    text-align: justify;
+    background-image: url('stroberi.png'), url('stroberi.png'), url('stroberi.png');
+    background-position: top left, top right, top; /* Adjust positions */
+    background-repeat: no-repeat;
+    background-size: 100px 100px; /* Adjust the size of the stickers */
+    order: 1;
+}
+
+#about-me h2 {
+    font-size: 2.5rem;
+    color: #6d1721;
+}
+
+#about-me p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 800px;
+}
+section {
+    margin: 0;
+    padding: 0;
+}
+
+/* General styling for the About Me section */
+.about-me-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    line-height: 1.6;
+    position: relative; /* Ensures proper stacking context */
+    z-index: 10; /* Prevents overlap issues */
+}
+
+/* Spacing between About Me and Image */
+.about-me-container + .image-container {
+    margin-top: 2rem; /* Adds space between text and image */
+}
+
+/* Styling for the Image Container */
+.image-container img {
+    width: 100%;
+    max-width: 300px; /* Limits the image size */
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto; /* Centers the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+
+.about-me-title {
+    font-size: 2rem; /* Headline font size */
+    text-align: center;
+    color: #800000; /* Keeps the headline color */
+    margin-bottom: 1rem;
+}
+
+.about-me-content {
+    font-size: 1rem;
+    color: #333;
+    text-align: justify; /* Makes the text easier to read */
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .about-me-container {
+        width: 90%; /* Uses more space on smaller screens */
+        padding: 1rem; /* Reduces padding slightly */
+    }
+    .about-me-container + .image-container {
+        margin-top: 1.5rem; /* Slightly reduces the space */
+    }
+
+    .image-container img {
+        max-width: 200px; /* Ensures the image scales down */
+    }
+    .about-me-title {
+        font-size: 1.8rem; /* Adjusts title size */
+    }
+
+    .about-me-content {
+        font-size: 0.95rem; /* Reduces font size slightly */
+        text-align: left; /* Aligns text to the left for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .about-me-container {
+        width: 95%; /* Maximizes space usage on very small screens */
+        padding: 0.8rem;
+    }
+
+    .about-me-title {
+        font-size: 1.6rem; /* Further adjusts title size */
+    }
+
+    .about-me-content {
+        font-size: 0.9rem; /* Slightly smaller font size */
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+/* General Scrapbook Styles */
+.scrapbook {
+    font-family: 'Caveat', cursive, sans-serif;/* Add a handwritten font */
+    font-weight: 400; /* or 700 for bold */
+    background-color: #fff9e8;
+    margin-top: 0;
+    padding: 30px;
+    border: 10px dashed #c7a978;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.scrapbook-content {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping if content overflows */
+    gap: 10px; /* Ensure adequate space between items */
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Align the items vertically */
+    width: 100%; /* Ensure it takes full width */
+    padding: 20px; /* Add some padding around the container */
+}
+
+.photo-card {
+    background: #ffe0a3;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Caveat', cursive, sans-serif;
+    margin: 10px;
+}
+
+.photo-card img {
+    width: 400px; /* Keep the width as is */
+    height: 450px; /* Adjust this value to make the box taller */
+    object-fit: cover; /* Ensures the image fits nicely without distortion */
+    border: 4px solid #601818;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    gap: 20px; 
+}
+
+.photo-card .caption {
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+.details {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(150px, 1fr)); /* 3 columns for the first row */
+    gap: 20px; /* Space between sticky notes */
+    justify-items: center; /* Center each sticky note horizontally */
+    align-items: start; /* Align the sticky notes to the top */
+    width: 100%; /* Ensure it adjusts to the full width */
+    max-width: 800px; /* Optional: Limit width for better alignment */
+    margin: 0 auto; /* Center the grid container horizontally */
+    padding-top: 10px; /* Add some padding at the top for spacing */
+}
+
+.sticky-note {
+    background: #fffcaa;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    font-family: 'Caveat', cursive;
+    display: flex; /* Ensures it accommodates dynamic height */
+    flex-direction: column;
+    align-items: center;
+    width: auto; /* Make width auto to adjust based on text */
+    min-width: 150px; /* Optional: To maintain a minimum size */
+    max-width: 200px; /* Optional: To avoid overly wide notes */
+    height: auto; /* Allow height to adjust dynamically */
+
+}
+
+/* Change color of the specific sticky notes */
+.sticky-note.special-note-1 {
+    background: #ffdce3; 
+    transform: rotate(5deg); /* Rotate and skew */
+    box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+    border: 2px dashed #afacff;
+    grid-row: 1; /* Places it in the first row */
+    margin-bottom: 40px;
+    
+}
+
+.sticky-note.special-note-2 {
+    background: #ddddff; /* Light pink */
+    transform: rotate(5deg); /* Rotate clockwise */
+    box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+    border: 2px solid #ff69b4; /* Solid pink border */
+    
+}
+
+.sticky-note.special-note-3 {
+    background: #ffe0d4; 
+    transform: rotate(-10deg); /* Rotate and skew */
+    box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+    border: 2px dashed #ff6ecc;
+    margin-bottom: 40px;
+}
+.sticky-note.special-note-4 {
+    background: #e6ffcc; 
+    transform: rotate(-5deg); /* Rotate and skew */
+    box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+    border: 2px dashed #e8a656;
+    grid-row: 3; /* Places it in the first row */
+    grid-column: 2;
+    align-self: start;
+    margin-top: -80px;
+}
+
+.sticky-note::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: red; /* Pin color */
+    border-radius: 70%; /* Make it circular */
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.details {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(150px, 1fr)); /* 3 columns for the first row */
+        gap: 10px; /* Space between sticky notes */
+        justify-items: center; /* Center each sticky note horizontally */
+        align-items: start; /* Align the sticky notes to the top */
+        width: 100%; /* Ensure it adjusts to the full width */
+        max-width: 800px; /* Optional: Limit width for better alignment */
+        margin: 0 auto; /* Center the grid container horizontally */
+        padding-top: 20px; /* Add some padding at the top for spacing */
+    }
+
+
+.sticky-note::before {
+    content: '';
+    width: 60px;
+    height: 15px;
+    background: #ffeb7f;
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-40%);
+    border-radius: 2px;
+}
+
+.sticky-note h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #875c36;
+}
+
+.sticky-note p {
+    font-size: 1rem;
+    color: #3d3d3d;
+    text-align: center; /* Centers the content */
+    word-wrap: break-word; /* Ensures text doesn't overflow */
+}
+
+/* Educational Background Text Box */
+.educational-background {
+    background: #fff9e8;  /* Light background similar to the scrapbook */
+    padding: 20px;
+    border: 2px solid #c7a978;  /* Border color similar to scrapbook */
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);  /* Soft shadow for depth */
+    font-family: 'Caveat', cursive, sans-serif;
+    max-width: 850px;  /* Set the max width for the text box */
+    margin: 20px auto;  /* Center the box horizontally with margin */
+    margin-bottom: 30px; /* Add space below the educational background */
+}
+
+.educational-background h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #875c36;  /* Match with the sticky note heading color */
+}
+
+.educational-background p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #3d3d3d;  /* Dark grey for readability */
+    margin-bottom: 15px;
+}
+
+.educational-background strong {
+    font-weight: bold;
+} 
